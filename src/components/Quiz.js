@@ -37,7 +37,6 @@ export default function Quiz() {
             })
     }, [])
 
-    console.log(questions)
     const questionElements = questions.length > 0 ? questions.map(item => {
         return (
             <Question
