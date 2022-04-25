@@ -3,7 +3,7 @@ import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
 import { decode } from "he"
 import Question from "./Question";
 
-export default function Quiz() {
+export default function Quiz(props) {
 
     //declaring states
     const [questions, setQuestions] = React.useState([]);
@@ -45,10 +45,8 @@ export default function Quiz() {
 
     function handleCorrectCount(correct, id) {
         //changing value of isCorrect in question object 
-
+        console.log("asd")
         setQuestions(prevQuest => prevQuest.map(q => {
-
-
             if (q.id === id) {
                 return { ...q, isCorrect: correct }
             }
@@ -63,8 +61,11 @@ export default function Quiz() {
         setCheck(prevCheck => !prevCheck)
         //updating correct answers counter
         setCorrectCount(questions.filter(q => q.isCorrect === true).length)
+
+
     }
 
+    console.log(props.handleClick)
     //const that shows score
     const showCount = check ? <p>You scored {correctCount}/{questions.length} correct answers</p> : <p></p>
 
@@ -92,7 +93,7 @@ export default function Quiz() {
             </div>
             <div className="score-wrapper">
                 {showCount}
-                <button className="check-btn" onClick={handleCheck}>{check ? "Play again" : "Check answers"}</button>
+                <button className="check-btn" onClick={() => { handleCheck(); this.forceUpdate() }}>{check ? "Play again" : "Check answers"}</button>
             </div>
         </div>
     )

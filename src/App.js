@@ -5,6 +5,7 @@ import Quiz from "./components/Quiz"
 export default function App() {
 
   const [firstGame, setFirstGame] = React.useState(true);
+  const [, forceUpdate] = React.useReducer(x => x + 1, 0);
 
 
   function handleFirstGame() {
@@ -23,7 +24,7 @@ export default function App() {
         />
         :
         <Quiz
-
+          handleClick={forceUpdate}
         />
       }
 

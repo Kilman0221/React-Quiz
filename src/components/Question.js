@@ -15,26 +15,26 @@ export default function Question(props) {
             } else if (selected && !correct) {
                 return "incorrect"
             }
-        } else return selected ? "selected" : ""
+        } else
+            return selected ? "selected" : ""
     }
 
-    function handleBtnClick(correct, id) {
-        setAnswers(prevAnswers => prevAnswers.map(ans => {
-            if (ans.id == id) {
-                return { ...ans, isSelected: true }
-            } else {
-                return { ...ans, isSelected: false }
+    function handleBtnClick(id) {
+
+        setAnswers(prevAns => prevAns.map(ans => {
+            if (ans.id === id) {
+                return ans.isSelected = true;
             }
-        }))
+            else return ans.isSelected = false;
 
+        }))
     }
-    //  props.handleCorrectCount(correct, id)
 
     const buttons = answers.map(item => {
         return <button
             key={nanoid()}
             selected={item.isSelected}
-            onClick={() => handleBtnClick(item.isCorrect, item.id)}
+            onClick={() => { handleBtnClick(item.id); props.handleCorrectCount(item.isCorrect, props.id) }}
             className={setColor(item.isSelected, item.isCorrect)}
         >
             {item.text}</button>
