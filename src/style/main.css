@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+:root {
+  --selected: #D6DBF5;
+  --after: #DBDEF0;
+  --background: #F5F7FB;
+  --check-btn: #4D5B9E;
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Karla';
@@ -18,30 +25,83 @@ main {
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #F5F7FB;
+  background-color: var(--background);
 }
 
-main .questions-container {
+main .quiz-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+main .quiz-wrapper .score-wrapper {
+  flex-basis: 100%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+main .quiz-wrapper .score-wrapper button {
+  min-width: 15%;
+  height: 3rem;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--check-btn);
+  color: white;
+  font-weight: 700;
+}
+
+main .quiz-wrapper .question-container {
+  flex-basis: 60%;
   display: flex;
   flex-wrap: wrap;
 }
 
-main .questions-container .question-answear {
+main .quiz-wrapper .question-container .question-answer {
   flex-basis: 100%;
+  justify-content: center;
+  position: relative;
+  margin-top: 2rem;
 }
 
-main .svg-wrapper:first-of-type {
-  width: 40%;
+main .quiz-wrapper .question-container .question-answer::after {
   position: absolute;
-  top: -30%;
-  right: -20%;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: var(--after);
+  bottom: -20%;
 }
 
-main .svg-wrapper:last-of-type {
-  width: 40%;
-  position: absolute;
-  bottom: -30%;
-  left: -20%;
+main .quiz-wrapper .question-container .question-answer .answers {
+  display: flex;
+  justify-content: flex-start;
+}
+
+main .quiz-wrapper .question-container .question-answer .answers button {
+  min-width: 15%;
+  min-height: 2rem;
+  border: solid black 1px;
+  border-radius: 50px;
+  background-color: white;
+  margin-right: 2rem;
+}
+
+main .quiz-wrapper .question-container .question-answer .answers .selected {
+  background-color: var(--selected);
+  border: none;
+}
+
+main .quiz-wrapper .question-container .question-answer .answers .correct {
+  background-color: green;
+}
+
+main .quiz-wrapper .question-container .question-answer .answers .incorrect {
+  background-color: red;
 }
 
 main .first-start {
@@ -70,9 +130,9 @@ main .first-start p {
 
 main .first-start button {
   background-color: #4D5B9E;
-  border-radius: 10px;
+  border-radius: 25px;
   border: none;
-  width: 50%;
+  width: 80%;
   min-height: 100px;
   color: #fff;
   font-size: 1.5rem;

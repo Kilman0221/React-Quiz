@@ -13,6 +13,8 @@ export default function App() {
     })
   }
 
+
+
   return (
     <main>
       {firstGame ?
@@ -24,6 +26,7 @@ export default function App() {
 
         />
       }
+
     </main>
   );
 }
