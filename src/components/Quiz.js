@@ -66,8 +66,8 @@ export default function Quiz(props) {
         }
 
     }
-    //const that shows score
-    const showCount = check ? <p>You scored {correctCount}/{questions.length} correct answers</p> : <p></p>
+    //const that writes user score
+    const showCount = check ? <p>You scored {correctCount}/{questions.length} correct answers</p> : ""
 
 
     const questionElements = questions.length > 0 ? questions.map(item => {

@@ -10,13 +10,15 @@ export default function Question(props) {
     function setColor(selected, correct) {
 
         if (props.check) {
-            if (selected && correct) {
-                return "correct"
+            if (correct) {
+                return "correct";
             } else if (selected && !correct) {
-                return "incorrect"
+                return "incorrect";
+            } else if (!selected && !correct) {
+                return "greyed-out";
             }
         } else
-            return selected ? "selected" : ""
+            return selected ? "selected" : "";
     }
 
     function handleBtnClick(id) {
