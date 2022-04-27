@@ -61,17 +61,19 @@ export default function Quiz(props) {
         setCheck(prevCheck => !prevCheck)
         //updating correct answers counter
         setCorrectCount(questions.filter(q => q.isCorrect === true).length)
-
+        if (check === true) {
+            props.handleRestart()
+        }
 
     }
-
-    console.log(props.handleClick)
     //const that shows score
     const showCount = check ? <p>You scored {correctCount}/{questions.length} correct answers</p> : <p></p>
 
 
     const questionElements = questions.length > 0 ? questions.map(item => {
         return (
+
+
             <Question
                 key={nanoid()}
                 id={item.id}
@@ -93,7 +95,7 @@ export default function Quiz(props) {
             </div>
             <div className="score-wrapper">
                 {showCount}
-                <button className="check-btn" onClick={() => { handleCheck(); this.forceUpdate() }}>{check ? "Play again" : "Check answers"}</button>
+                <button className="check-btn" onClick={() => { handleCheck(); }}>{check ? "Play again" : "Check answers"}</button>
             </div>
         </div>
     )

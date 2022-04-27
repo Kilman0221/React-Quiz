@@ -4,28 +4,28 @@ import Quiz from "./components/Quiz"
 
 export default function App() {
 
-  const [firstGame, setFirstGame] = React.useState(true);
-  const [, forceUpdate] = React.useReducer(x => x + 1, 0);
+  const [game, setGame] = React.useState(true);
 
 
-  function handleFirstGame() {
-    setFirstGame(prevGame => {
+  function handleGame() {
+    setGame(prevGame => {
       return !prevGame
     })
   }
 
 
 
+  console.log("rendered")
   return (
+
     <main>
-      {firstGame ?
-        <StartScreen
-          handleChange={handleFirstGame}
-        />
-        :
-        <Quiz
-          handleClick={forceUpdate}
-        />
+      {
+        game ?
+          <StartScreen
+            handleChange={handleGame}
+          />
+          :
+          <Quiz handleRestart={handleGame} />
       }
 
     </main>
