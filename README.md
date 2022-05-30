@@ -5,7 +5,10 @@ Its main function is to fetch quiz questions from api. It shows user score and c
 
 ## Screen Shot
 
-<img src="/screen_shots/screen_shot.png" width="500">
+<img src="/screen_shots/screen_shot1.png" width="300">
+<img src="/screen_shots/screen_shot2.png" width="300">
+<img src="/screen_shots/screen_shot3.png" width="300">
+
 
 # Installation and Setup Instructions
 
