@@ -1,7 +1,7 @@
 # Summary
 
 This project is a final react course task.
-Its main function is to fetch quiz questions from api. It shows user score and correct/incorrect answers.
+Its main function is to fetch quiz questions from api. It shows user score and correct/incorrect answers. Built with React, JavaScript, SCSS
 
 ## Screen Shot
 
